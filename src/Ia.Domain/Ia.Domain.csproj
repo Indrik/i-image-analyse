@@ -38,7 +38,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\IAnalyser.cs" />
+    <Compile Include="Interfaces\IAnalyser.cs" />
+    <Compile Include="Interfaces\IDirectoryReader.cs" />
+    <Compile Include="Models\ImageInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

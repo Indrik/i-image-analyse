@@ -1,6 +1,7 @@
 ﻿namespace Ia.Business
 {
-    public class Class1
+    public class FileCompare
     {
+        
     }
 }
