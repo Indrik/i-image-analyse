@@ -1,9 +1,10 @@
 ﻿using Ia.Domain.Interface;
 using LightInject;
+using src;
 
-namespace src
+namespace Ia.Application
 {
-    internal static class Program
+    internal class Program
     {
         public static void Main(string[] args)
         {
