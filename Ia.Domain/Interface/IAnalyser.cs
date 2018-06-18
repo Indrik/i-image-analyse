@@ -4,6 +4,6 @@ namespace Ia.Domain.Interface
 {
     public interface IAnalyser
     {
-        Task Run();
+        Task RunAsync();
     }
 }

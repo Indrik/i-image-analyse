@@ -1,8 +1,7 @@
 ﻿using Ia.Domain.Interface;
 using LightInject;
-using src;
 
-namespace Ia.Application
+namespace Ia.ApplicationV2
 {
     internal class Program
     {

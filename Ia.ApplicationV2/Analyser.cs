@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Ia.Domain.Interface;
 
-namespace src
+namespace Ia.ApplicationV2
 {
     public class Analyser : IAnalyser
     {
