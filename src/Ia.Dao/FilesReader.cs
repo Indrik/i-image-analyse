@@ -9,7 +9,7 @@ namespace Ia.Dao
 {
     public class FilesReader : IFilesReader
     {
-        public async Task<List<ImageInfo>> GetDirectoryFilesAsync(string directory, string[] filesList)
+        public async Task<List<ImageInfo>> GetDirectoryFilesAsync(string[] filesList)
         {
             var result = new List<ImageInfo>();
             
@@ -20,7 +20,7 @@ namespace Ia.Dao
                     throw new FileNotFoundException(file);
                 }
 
-                var imageInfo = new ImageInfo(directory, file);
+                var imageInfo = new ImageInfo(file, Path.GetFileName(file));
                 using (var image = Image.FromFile(file))
                 {
                     imageInfo.Height = image.Height;

@@ -23,7 +23,7 @@ namespace Ia.Dao
             }
             
             var filesList = Directory.GetFiles(directory);
-            return await _filesReader.GetDirectoryFilesAsync(directory, filesList).ConfigureAwait(false);
+            return await _filesReader.GetDirectoryFilesAsync(filesList).ConfigureAwait(false);
         }
     }
 }
