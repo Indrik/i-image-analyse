@@ -1,8 +1,6 @@
-﻿using Ia.Dao;
+﻿using System;
 using Ia.Domain.Interface;
-using Ia.Domain.Interfaces;
 using LightInject;
-using src;
 
 namespace Ia.Application
 {
@@ -10,6 +8,12 @@ namespace Ia.Application
     {
         public static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Please enter arguments: <analysis path> and <limit of area for image in percent>.");
+                return;
+            }
+            
             var container = DiInstaller.GetServiceContainer();
             var app = container.GetInstance<IAnalyser>();
             
