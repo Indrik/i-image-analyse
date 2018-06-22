@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,13 +13,18 @@ namespace Ia.Dao
         public async Task<List<ImageInfo>> GetDirectoryFilesAsync(string[] filesList)
         {
             var result = new List<ImageInfo>();
-            
+            Console.WriteLine($"Get {filesList.Length} files");
+
+            int i = 1;
+            int errors = 0;
             foreach (var file in filesList)
             {
                 if (!File.Exists(file))
                 {
-                    throw new FileNotFoundException(file);
+                    errors++;
                 }
+                
+                Console.WriteLine($"{i}/{filesList.Length} err: {errors}");
 
                 var imageInfo = new ImageInfo(file, Path.GetFileName(file));
                 using (var image = Image.FromFile(file))
@@ -27,6 +33,7 @@ namespace Ia.Dao
                     imageInfo.Width = image.Width;
                 }
                 result.Add(imageInfo);
+                i++;
             }
 
             return result;
