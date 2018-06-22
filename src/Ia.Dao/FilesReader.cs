@@ -9,7 +9,7 @@ namespace Ia.Dao
 {
     public class FilesReader : IFilesReader
     {
-        public async Task<List<ImageInfo>> GetDirectoryFiles(string directory, string[] filesList)
+        public async Task<List<ImageInfo>> GetDirectoryFilesAsync(string directory, string[] filesList)
         {
             var result = new List<ImageInfo>();
             

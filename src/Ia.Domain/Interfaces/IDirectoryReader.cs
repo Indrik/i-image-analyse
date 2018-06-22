@@ -6,6 +6,6 @@ namespace Ia.Domain.Interfaces
 {
     public interface IDirectoryReader
     {
-        Task<List<ImageInfo>> GetFilesList(string directory);
+        Task<List<ImageInfo>> GetFilesListAsync(string directory);
     }
 }

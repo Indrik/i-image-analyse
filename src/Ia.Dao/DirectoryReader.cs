@@ -16,7 +16,7 @@ namespace Ia.Dao
             _filesReader = filesReader;
         }
 
-        public async Task<List<ImageInfo>> GetFilesList(string directory)
+        public async Task<List<ImageInfo>> GetFilesListAsync(string directory)
         {
             if (!Directory.Exists(directory))
             {
@@ -24,7 +24,7 @@ namespace Ia.Dao
             }
             
             var filesList = Directory.GetFiles(directory);
-            return await _filesReader.GetDirectoryFiles(directory, filesList).ConfigureAwait(false);
+            return await _filesReader.GetDirectoryFilesAsync(directory, filesList).ConfigureAwait(false);
         }
     }
 }

@@ -4,6 +4,6 @@ namespace Ia.Domain.Interface
 {
     public interface IAnalyser
     {
-        Task RunAsync();
+        Task RunAsync(string path, int percentOfAreaLimit);
     }
 }

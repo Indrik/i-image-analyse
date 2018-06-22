@@ -16,7 +16,7 @@ namespace Ia.Application
             container.Register<IFilesReader, FilesReader>();
 
             var app = container.GetInstance<IAnalyser>();
-            app.RunAsync().Wait();
+            app.RunAsync(null, 10).Wait();
         }
     }
 }
