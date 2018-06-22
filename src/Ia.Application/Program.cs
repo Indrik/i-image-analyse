@@ -10,12 +10,9 @@ namespace Ia.Application
     {
         public static void Main(string[] args)
         {
-            var container = new ServiceContainer();
-            container.Register<IAnalyser, Analyser>();
-            container.Register<IDirectoryReader, DirectoryReader>();
-            container.Register<IFilesReader, FilesReader>();
-
+            var container = DiInstaller.GetServiceContainer();
             var app = container.GetInstance<IAnalyser>();
+            
             app.RunAsync(null, 10).Wait();
         }
     }
