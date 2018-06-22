@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Ia.Domain.Interface;
 using LightInject;
 
@@ -26,7 +27,7 @@ namespace Ia.Application
             
             var container = DiInstaller.GetServiceContainer();
             var app = container.GetInstance<IAnalyser>();
-            
+
             app.RunAsync(path, limit).Wait();
         }
     }
