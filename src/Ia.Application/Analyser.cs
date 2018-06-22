@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Ia.Domain.Interface;
 using Ia.Domain.Interfaces;
@@ -26,7 +26,13 @@ namespace src
             {
                 if (img.Area / DisplayArea * 100 < percentOfAreaLimit)
                 {
-                    throw new NotImplementedException();
+                    var newPathName = $"{path}/{percentOfAreaLimit}p";
+                    if (!Directory.Exists(newPathName))
+                    {
+                        Directory.CreateDirectory(newPathName);
+                    }
+                    
+                    File.Move(img.Path, $"{newPathName}/{img.Name}");
                 }
             }
         }
