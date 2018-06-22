@@ -9,6 +9,13 @@ namespace Ia.Dao
 {
     public class DirectoryReader : IDirectoryReader
     {
+        private readonly IFilesReader _filesReader;
+
+        public DirectoryReader(IFilesReader filesReader)
+        {
+            _filesReader = filesReader;
+        }
+
         public async Task<List<ImageInfo>> GetFilesList(string directory)
         {
             if (!Directory.Exists(directory))
@@ -16,26 +23,8 @@ namespace Ia.Dao
                 throw new DirectoryNotFoundException(directory);
             }
             
-            var result = new List<ImageInfo>();
-            
             var filesList = Directory.GetFiles(directory);
-            foreach (var file in filesList)
-            {
-                if (!File.Exists(file))
-                {
-                    throw new FileNotFoundException(file);
-                }
-
-                var imageInfo = new ImageInfo(directory, file);
-                using (var image = Image.FromFile(file))
-                {
-                    imageInfo.Height = image.Height;
-                    imageInfo.Width = image.Width;
-                }
-                result.Add(imageInfo);
-            }
-            
-            return result;
+            return await _filesReader.GetDirectoryFiles(directory, filesList).ConfigureAwait(false);
         }
     }
 }

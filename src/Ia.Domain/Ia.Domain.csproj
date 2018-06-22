@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IAnalyser.cs" />
     <Compile Include="Interfaces\IDirectoryReader.cs" />
+    <Compile Include="Interfaces\IFilesReader.cs" />
     <Compile Include="Models\ImageInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
