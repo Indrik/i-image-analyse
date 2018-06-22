@@ -10,7 +10,7 @@ namespace src
     {
         private const int Width = 2560;
         private const int Height = 1440;
-        private const int DisplayArea = Height * Width;
+        private const decimal DisplayArea = Height * Width;
         
         private readonly IDirectoryReader _directoryReader;
 
@@ -27,8 +27,9 @@ namespace src
             foreach (var img in images)
             {
                 Console.WriteLine($"calc {i}/{images.Count}");
+                decimal area = img.Area / DisplayArea * 100;
                 
-                if (img.Area / DisplayArea * 100 < percentOfAreaLimit)
+                if (area < percentOfAreaLimit)
                 {
                     var newPathName = $"{path}/{percentOfAreaLimit}p";
                     if (!Directory.Exists(newPathName))
