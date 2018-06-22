@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Ia.Domain.Interface;
 using Ia.Domain.Interfaces;
@@ -21,9 +22,12 @@ namespace src
         public async Task RunAsync(string path, int percentOfAreaLimit)
         {
             var images = await _directoryReader.GetFilesListAsync(path).ConfigureAwait(false);
+            int i = 1;
             
             foreach (var img in images)
             {
+                Console.WriteLine($"calc {i}/{images.Count}");
+                
                 if (img.Area / DisplayArea * 100 < percentOfAreaLimit)
                 {
                     var newPathName = $"{path}/{percentOfAreaLimit}p";
@@ -34,7 +38,11 @@ namespace src
                     
                     File.Move(img.Path, $"{newPathName}/{img.Name}");
                 }
+
+                i++;
             }
+            
+            Console.WriteLine("Complete...");
         }
     }
 }

@@ -13,7 +13,6 @@ namespace Ia.Dao
         public async Task<List<ImageInfo>> GetDirectoryFilesAsync(string[] filesList)
         {
             var result = new List<ImageInfo>();
-            Console.WriteLine($"Get {filesList.Length} files");
 
             int i = 1;
             int errors = 0;
@@ -24,7 +23,7 @@ namespace Ia.Dao
                     errors++;
                 }
                 
-                Console.WriteLine($"{i}/{filesList.Length} err: {errors}");
+                Console.WriteLine($"read {i}/{filesList.Length} err: {errors}");
 
                 var imageInfo = new ImageInfo(file, Path.GetFileName(file));
                 using (var image = Image.FromFile(file))
