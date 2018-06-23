@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ia.Business\Ia.Business.csproj">
+      <Project>{203fd237-f50f-4b8e-8f84-859661290264}</Project>
+      <Name>Ia.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ia.Dao\Ia.Dao.csproj">
       <Project>{c9085c6d-37a1-4d3b-a420-92538e5ebba4}</Project>
       <Name>Ia.Dao</Name>
