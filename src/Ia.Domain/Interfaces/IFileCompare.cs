@@ -4,6 +4,6 @@ namespace Ia.Domain.Interfaces
 {
     public interface IFileCompare
     {
-        Task Compare(string path, int percentOfAreaLimit);
+        Task Compare(string path, int percentOfAreaLimit, bool byOneDimension);
     }
 }

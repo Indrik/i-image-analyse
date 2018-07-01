@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IAnalyser.cs" />
+    <Compile Include="Interfaces\ICompareCalculator.cs" />
     <Compile Include="Interfaces\IDirectoryReader.cs" />
     <Compile Include="Interfaces\IFileCompare.cs" />
     <Compile Include="Interfaces\IFilesReader.cs" />

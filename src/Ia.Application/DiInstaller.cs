@@ -16,6 +16,7 @@ namespace Ia.Application
             container.Register<IDirectoryReader, DirectoryReader>();
             container.Register<IFilesReader, FilesReader>();
             container.Register<IFileCompare, FileCompare>();
+            container.Register<ICompareCalculator, CompareCalculator>();
             
             return container;
         }

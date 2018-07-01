@@ -9,7 +9,7 @@ namespace Ia.Application
     {
         public static void Main(string[] args)
         {
-            if (args.Length != 2)
+            if (args.Length < 2)
             {
                 Console.WriteLine("Please enter arguments: <analysis path> and <limit of area for image in percent>.");
                 return;
@@ -17,6 +17,7 @@ namespace Ia.Application
 
             var path = args[0];
             var strLimit = args[1];
+            bool byOneDimension = args.Length > 2 && args[2] == "--one-dimension";
 
             int limit;
             if (!int.TryParse(strLimit, out limit))
@@ -28,7 +29,7 @@ namespace Ia.Application
             var container = DiInstaller.GetServiceContainer();
             var app = container.GetInstance<IAnalyser>();
 
-            app.RunAsync(path, limit).Wait();
+            app.RunAsync(path, limit, byOneDimension).Wait();
         }
     }
 }

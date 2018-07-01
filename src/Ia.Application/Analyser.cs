@@ -14,9 +14,9 @@ namespace Ia.Application
             _fileCompare = fileCompare;
         }
 
-        public async Task RunAsync(string path, int percentOfAreaLimit)
+        public async Task RunAsync(string path, int percentOfAreaLimit, bool byOneDimension)
         {
-            await _fileCompare.Compare(path, percentOfAreaLimit).ConfigureAwait(false);
+            await _fileCompare.Compare(path, percentOfAreaLimit, byOneDimension).ConfigureAwait(false);
             
             Console.WriteLine("Complete...");
         }
