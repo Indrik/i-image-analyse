@@ -16,9 +16,10 @@ namespace Ia.Application
 
         public async Task RunAsync(string path, int percentOfAreaLimit, bool byOneDimension)
         {
-            await _fileCompare.Compare(path, percentOfAreaLimit, byOneDimension).ConfigureAwait(false);
+            var moved = await _fileCompare.Compare(path, percentOfAreaLimit, byOneDimension).ConfigureAwait(false);
             
             Console.WriteLine("Complete...");
+            Console.WriteLine($"Moved: {moved}");
         }
     }
 }

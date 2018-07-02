@@ -23,7 +23,7 @@ namespace Ia.Business
             _compareCalculator = compareCalculator;
         }
 
-        public async Task Compare(string path, int percentOfAreaLimit, bool byOneDimension)
+        public async Task<int> Compare(string path, int percentOfAreaLimit, bool byOneDimension)
         {
             var images = await _directoryReader.GetFilesListAsync(path).ConfigureAwait(false);
             var baseImg = new ImageInfo
@@ -32,6 +32,7 @@ namespace Ia.Business
                 Width = Width
             };
             int i = 1;
+            int moved = 0;
             
             foreach (var img in images)
             {
@@ -46,10 +47,13 @@ namespace Ia.Business
                     }
                     
                     File.Move(img.Path, $"{newPathName}/{img.Name}");
+                    moved++;
                 }
 
                 i++;
             }
+
+            return moved;
         }
     }
 }
